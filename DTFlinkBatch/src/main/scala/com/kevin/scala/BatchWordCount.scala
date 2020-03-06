@@ -1,14 +1,11 @@
-package com.kevin.batch
+package com.kevin.scala
 
-import org.apache.flink.api.scala.ExecutionEnvironment
-import org.apache.flink.api.scala._
+import org.apache.flink.api.scala.{ExecutionEnvironment, _}
 
 /**
- * @author caonanqing
- * @version 1.0
- * @description   批处理单词计数
- * @createDate 2020/2/27
- */
+  * 批处理单词计数
+  * @author caonanqing on createDate 2020/2/27
+  */
 object BatchWordCountScala {
 
   def main(args: Array[String]): Unit = {

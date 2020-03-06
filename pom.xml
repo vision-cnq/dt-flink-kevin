@@ -6,7 +6,13 @@
 
     <groupId>com.kevin</groupId>
     <artifactId>DTFlink</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>DTFlinkBatch</module>
+        <module>DTFlinkStreaming</module>
+        <module>DTFlinkSql</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -141,7 +147,7 @@
                     <archive>
                         <manifest>
                             <!-- 可以设置jar包的入口类(可选) -->
-                            <mainClass>com.kevin.batch.BatchWordCountScala</mainClass>
+                            <mainClass>com.kevin.java.BatchWordCountScala</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

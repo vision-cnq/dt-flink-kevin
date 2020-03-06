@@ -1,4 +1,4 @@
-package com.kevin.batch;
+package com.kevin;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.DataSet;
@@ -9,10 +9,10 @@ import org.apache.flink.util.Collector;
 /**
  * @author caonanqing
  * @version 1.0
- * @description
+ * @description     批处理单词计数
  * @createDate 2020/2/27
  */
-public class BatchWordCount {
+public class WordCount {
 
     public static void main(String[] args) throws Exception {
 
