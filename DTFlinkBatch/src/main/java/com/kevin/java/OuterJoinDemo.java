@@ -22,19 +22,19 @@ public class OuterJoinDemo {
         ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
         ArrayList<Tuple2<Integer, String>> data1 = new ArrayList<>();
-        data1.add(new Tuple2<>(1,"java"));
-        data1.add(new Tuple2<>(2,"python"));
-        data1.add(new Tuple2<>(3,"scala"));
+        data1.add(new Tuple2<>(1,"kevin"));
+        data1.add(new Tuple2<>(2,"coco"));
+        data1.add(new Tuple2<>(3,"Mr.Cao"));
 
         ArrayList<Tuple2<Integer, String>> data2 = new ArrayList<>();
-        data2.add(new Tuple2<>(1,"kevin"));
-        data2.add(new Tuple2<>(2,"coco"));
-        data2.add(new Tuple2<>(3,"Mr.Cao"));
+        data2.add(new Tuple2<>(1,"shenzhen"));
+        data2.add(new Tuple2<>(2,"guangzhou"));
+        data2.add(new Tuple2<>(5,"zhanjiang"));
 
         DataSource<Tuple2<Integer, String>> text1 = env.fromCollection(data1);
         DataSource<Tuple2<Integer, String>> text2 = env.fromCollection(data2);
 
-        // 左外连接
+        // 左外连接,second可能为null
         text1.leftOuterJoin(text2).where(0).equalTo(0).with(
                 new JoinFunction<Tuple2<Integer,String>, Tuple2<Integer,String>, Tuple3<Integer,String,String>>()  {
             @Override
@@ -49,6 +49,35 @@ public class OuterJoinDemo {
         }).print();
 
         System.out.println("------------------");
+
+        // 右外连接,first中的tuple的数据可以为null
+        text1.rightOuterJoin(text2).where(0).equalTo(0).with(
+                new JoinFunction<Tuple2<Integer,String>, Tuple2<Integer,String>, Tuple3<Integer,String,String>>() {
+            @Override
+            public Tuple3<Integer, String, String> join(Tuple2<Integer, String> first, Tuple2<Integer, String> second) throws Exception {
+                if(first == null){
+                    return new Tuple3<>(second.f0,"null",second.f1);
+                }
+                return new Tuple3<>(first.f0,first.f1,second.f1);
+            }
+        }).print();
+
+        System.out.println("------------------");
+
+        // 全外连接,first和second这两个的tuple都有可能为null
+        text1.fullOuterJoin(text2).where(0).equalTo(0).with(
+                new JoinFunction<Tuple2<Integer,String>, Tuple2<Integer,String>, Tuple3<Integer,String,String>>() {
+            @Override
+            public Tuple3<Integer, String, String> join(Tuple2<Integer, String> first, Tuple2<Integer, String> second) throws Exception {
+                if(first==null){
+                    return new Tuple3<>(second.f0,"null",second.f1);
+                }else if (second==null){
+                    return new Tuple3<>(first.f0,first.f1,"null");
+                }else{
+                    return new Tuple3<>(first.f0,first.f1,second.f1);
+                }
+            }
+        }).print();
 
 
     }
