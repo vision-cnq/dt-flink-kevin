@@ -6,7 +6,7 @@ import org.apache.flink.api.scala.{ExecutionEnvironment, _}
   * 批处理单词计数
   * @author caonanqing on createDate 2020/2/27
   */
-object BatchWordCountScala {
+object WordCount {
 
   def main(args: Array[String]): Unit = {
 

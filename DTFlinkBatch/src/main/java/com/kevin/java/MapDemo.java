@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * @author caonanqing
  * @version 1.0
- * @description     map案例
+ * @description     map：每来一个元素则处理一个元素
  * @createDate 2020/3/9
  */
 public class MapDemo {
