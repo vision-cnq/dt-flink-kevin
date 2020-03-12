@@ -78,29 +78,38 @@
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
                 <version>3.1.6</version>
-                <configuration>
-                    <scalaCompatVersion>2.11</scalaCompatVersion>
-                    <scalaVersion>2.11.12</scalaVersion>
-                    <encoding>UTF-8</encoding>
-                </configuration>
                 <executions>
                     <execution>
-                        <id>compile-scala</id>
-                        <phase>compile</phase>
+                        <!-- 声明绑定到maven的compile阶段 -->
                         <goals>
-                            <goal>add-source</goal>
                             <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>test-compile-scala</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>add-source</goal>
                             <goal>testCompile</goal>
                         </goals>
                     </execution>
                 </executions>
+                <!--<configuration>-->
+                    <!--<scalaCompatVersion>2.11</scalaCompatVersion>-->
+                    <!--<scalaVersion>2.11.12</scalaVersion>-->
+                    <!--<encoding>UTF-8</encoding>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>compile-scala</id>-->
+                        <!--<phase>compile</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>add-source</goal>-->
+                            <!--<goal>compile</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<id>test-compile-scala</id>-->
+                        <!--<phase>test-compile</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>add-source</goal>-->
+                            <!--<goal>testCompile</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
             </plugin>
             <!-- 打jar包插件(会包含所有依赖) -->
             <plugin>
@@ -111,12 +120,12 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <!-- 可以设置jar包的入口类(可选) -->
-                            <mainClass>com.kevin.java.BatchWordCountScala</mainClass>
-                        </manifest>
-                    </archive>
+                    <!--<archive>-->
+                        <!--<manifest>-->
+                            <!--&lt;!&ndash; 可以设置jar包的入口类(可选) &ndash;&gt;-->
+                            <!--<mainClass>com.kevin.java.BatchWordCountScala</mainClass>-->
+                        <!--</manifest>-->
+                    <!--</archive>-->
                 </configuration>
                 <executions>
                     <execution>
