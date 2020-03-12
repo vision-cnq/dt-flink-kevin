@@ -13,6 +13,8 @@ import java.util.Iterator;
  * @author caonanqing
  * @version 1.0
  * @description     mapPartition案例，主要用在数据库连接
+ *      在单个函数调用中转换并行分区，该函数将分区作为Iterable流获取，并可以产生任意数量的结果值，
+ *      在每个分区中元素的数量取决于并行度和先前的操作。
  * @createDate 2020/3/9
  */
 public class MapPartitionDemo {

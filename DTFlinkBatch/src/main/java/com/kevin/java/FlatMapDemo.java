@@ -27,7 +27,7 @@ public class FlatMapDemo {
 
         // 将数据转成DataSet算子
         DataSource<String> data = env.fromCollection(list);
-        
+
         data.flatMap(new FlatMapFunction<String, String>() {
             @Override
             public void flatMap(String value, Collector<String> out) throws Exception {
