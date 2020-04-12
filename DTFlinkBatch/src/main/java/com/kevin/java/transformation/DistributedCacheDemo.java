@@ -1,4 +1,4 @@
-package com.kevin.java;
+package com.kevin.java.transformation;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.flink.api.common.functions.RichMapFunction;

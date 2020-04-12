@@ -1,4 +1,4 @@
-package com.kevin.java;
+package com.kevin.java.source;
 
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;

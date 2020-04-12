@@ -1,4 +1,4 @@
-package com.kevin.java;
+package com.kevin.java.transformation;
 
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.operators.CrossOperator;
