@@ -5,19 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.kevin</groupId>
-    <artifactId>DTFlink</artifactId>
+    <artifactId>dt-flink-kevin</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>DTFlinkBatch</module>
-        <module>DTFlinkStreaming</module>
-        <module>DTFlinkSql</module>
+        <module>dt-flink-dataset</module>
+        <module>dt-flink-datastream</module>
+        <module>dt-flink-sql-table-api</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <flink.version>1.7.2</flink.version>
+        <hadoop.version>2.7.2</hadoop.version>
+        <httpclient.version>4.5.12</httpclient.version>
+        <kafka.version>1.10.0</kafka.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.11</scala.binary.version>
         <calcite.version>1.16.0</calcite.version>
@@ -58,6 +61,30 @@
             <version>1.7.25</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-hadoop-fs</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>${hadoop.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+            <version>${hadoop.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -87,29 +114,7 @@
                         </goals>
                     </execution>
                 </executions>
-                <!--<configuration>-->
-                    <!--<scalaCompatVersion>2.11</scalaCompatVersion>-->
-                    <!--<scalaVersion>2.11.12</scalaVersion>-->
-                    <!--<encoding>UTF-8</encoding>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>compile-scala</id>-->
-                        <!--<phase>compile</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>add-source</goal>-->
-                            <!--<goal>compile</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                    <!--<execution>-->
-                        <!--<id>test-compile-scala</id>-->
-                        <!--<phase>test-compile</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>add-source</goal>-->
-                            <!--<goal>testCompile</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
+
             </plugin>
             <!-- 打jar包插件(会包含所有依赖) -->
             <plugin>
