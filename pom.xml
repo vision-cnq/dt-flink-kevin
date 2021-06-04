@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <flink.version>1.7.2</flink.version>
         <hadoop.version>2.7.2</hadoop.version>
-        <httpclient.version>4.5.12</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <kafka.version>1.10.0</kafka.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.11</scala.binary.version>
